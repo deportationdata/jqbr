@@ -1,0 +1,220 @@
+{
+  "version": 1,
+  "locale": "en_US",
+  "platform": "4.5.1",
+  "metadata": {
+    "appmode": "static",
+    "primary_rmd": null,
+    "primary_html": "docs/index.html",
+    "content_category": null,
+    "has_parameters": false
+  },
+  "packages": null,
+  "files": {
+    ".github/workflows/drat.yml": {
+      "checksum": "f9aa390af716bb6848b5aa6c957720bf"
+    },
+    ".github/workflows/R-CMD-check.yaml": {
+      "checksum": "1b85135ed2e14953881ad20229039be5"
+    },
+    ".lintr": {
+      "checksum": "9c29b5116ded510bde0f9906a75e6340"
+    },
+    ".Rbuildignore": {
+      "checksum": "42a84c5e3e5ba66e733f191ead3f3cd0"
+    },
+    "DESCRIPTION": {
+      "checksum": "e1a3a08e313be0357230c92f4cf4996a"
+    },
+    "docs/advanced.md": {
+      "checksum": "05b32fe7f73cd27ba69a5989412b7f1d"
+    },
+    "docs/assets/img/hex-qbr.png": {
+      "checksum": "35ea362d048eb59b3a5056ec1358f625"
+    },
+    "docs/basic-usage.md": {
+      "checksum": "8b285b6c469e72251ec0d93b11eb08a1"
+    },
+    "docs/docify.R": {
+      "checksum": "04f72b18d8d997b2f580a825964c6a01"
+    },
+    "docs/docute.css": {
+      "checksum": "eb501d88a6b88ccc82c2786096a042b3"
+    },
+    "docs/filters.md": {
+      "checksum": "3548b27892c71016b3e758c83f08d478"
+    },
+    "docs/index.html": {
+      "checksum": "8a0ca9832461641968f31f9ba7010ad7"
+    },
+    "docs/index.js": {
+      "checksum": "ae195f0110c5105660ca5c136bc2d562"
+    },
+    "docs/NEWS.md": {
+      "checksum": "22f08bb762b2249d60c50e8dba652fff"
+    },
+    "docs/plugins.md": {
+      "checksum": "ac8a7e42f01b4a32ecb5338dd1b90310"
+    },
+    "docs/README.md": {
+      "checksum": "5b37f5b97352296c5ad2c7bc40b2eb46"
+    },
+    "docs/references/filter_table.md": {
+      "checksum": "08849bafdb65e42e5a77f86925294793"
+    },
+    "docs/references/queryBuilderInput.md": {
+      "checksum": "c7341ac7f9070ff791f4eac2e83540cd"
+    },
+    "docs/references/run_jqbr_demo.md": {
+      "checksum": "ab0de0077fb908c5e3301bf78485b1ed"
+    },
+    "docs/references/updateQueryBuilder.md": {
+      "checksum": "d8861de84787ec6cc64017614194bf8f"
+    },
+    "docs/references/useQueryBuilder.md": {
+      "checksum": "329b1b01077d05165b2ae216342747ad"
+    },
+    "docs/widgets.md": {
+      "checksum": "96da15f431c107ffc5a609db18a3cf70"
+    },
+    "inst/app/app.R": {
+      "checksum": "33357eba0f1a57b841c3019738e67c53"
+    },
+    "inst/app/modules/advanced.R": {
+      "checksum": "caa54b4d6b8da3ba7409d72f7502bf61"
+    },
+    "inst/app/modules/basic.R": {
+      "checksum": "a196345fffe8e6c42bdc8cb5be356c4d"
+    },
+    "inst/app/modules/output.R": {
+      "checksum": "8c78d513fe93078827bf924c167070a5"
+    },
+    "inst/app/modules/plugins.R": {
+      "checksum": "9d751c03d6e9e532787689ee1921e628"
+    },
+    "inst/app/modules/r_filter.R": {
+      "checksum": "24c656d883eef07bcae83ba20d31c591"
+    },
+    "inst/app/modules/widgets.R": {
+      "checksum": "dbf35b432203c49e42211c313648312b"
+    },
+    "inst/examples/dev.R": {
+      "checksum": "001f24894dbc03b334b25061fef7d1d0"
+    },
+    "inst/packer/query-builder-bs3.standalone.min.css": {
+      "checksum": "79cbd4f884d24765ed652f76aab51569"
+    },
+    "inst/packer/query-builder-bs3.standalone.min.js": {
+      "checksum": "7b3afd654630416fd266d36ef3af1ec9"
+    },
+    "inst/packer/query-builder-bs4.standalone.min.css": {
+      "checksum": "cf132bdc8e3bdeb74000ca40428e0503"
+    },
+    "inst/packer/query-builder-bs4.standalone.min.js": {
+      "checksum": "e6354b8d1b9879217c568492cb5e3584"
+    },
+    "inst/packer/query-builder-bs5.standalone.min.css": {
+      "checksum": "8b61b186aaa1d33292a9d7b99a437a4d"
+    },
+    "inst/packer/query-builder-bs5.standalone.min.js": {
+      "checksum": "4b1c5fa7e6b0ad4355b83db15b2018a1"
+    },
+    "inst/packer/queryBuilder.js": {
+      "checksum": "e10e3ded6dfe1e0dbc80db9757b10f6c"
+    },
+    "LICENSE": {
+      "checksum": "f2691b047a443d5c9785f94dab295b99"
+    },
+    "LICENSE.md": {
+      "checksum": "9696a93e9302a3796e5591b723853fac"
+    },
+    "man/filter_table.Rd": {
+      "checksum": "610da9b169b123478918fe6e236bec8e"
+    },
+    "man/queryBuilderInput.Rd": {
+      "checksum": "23a166f5a797d6a7508c7ff7c510e472"
+    },
+    "man/run_jqbr_demo.Rd": {
+      "checksum": "e5a9247b9cce9fdb85277161b38682e1"
+    },
+    "man/updateQueryBuilder.Rd": {
+      "checksum": "74db8196cf9b475ab8be8b2c639792cb"
+    },
+    "man/useQueryBuilder.Rd": {
+      "checksum": "f73860218f473a53b46f62cd57b7a8bc"
+    },
+    "NAMESPACE": {
+      "checksum": "013d3f3bb5ac5db68e918673c0b62c19"
+    },
+    "NEWS.md": {
+      "checksum": "b54ac6ce4020b7ec10f0429f54f2d79f"
+    },
+    "package-lock.json": {
+      "checksum": "6eb8a5b09c46324cf0741d95677d0158"
+    },
+    "package.json": {
+      "checksum": "86b2ce910f17f538c28cdb509e75f661"
+    },
+    "R/app.R": {
+      "checksum": "d3a368ad9e62a33fe689781beb8887c7"
+    },
+    "R/dependencies.R": {
+      "checksum": "6b064c5f54444669cfd518e19ee9be9e"
+    },
+    "R/helpers.R": {
+      "checksum": "8f3788ea6e4acf992314ee89a9133e70"
+    },
+    "R/queryBuilder.R": {
+      "checksum": "3bca89190a2dcc5d5863f4a833ffbbe4"
+    },
+    "R/utils.R": {
+      "checksum": "725d2204a74aa98019035fb3c90dadb2"
+    },
+    "R/zzz.R": {
+      "checksum": "0b80eaa9a664c1b69a7c61f3ef1f8d8a"
+    },
+    "README.md": {
+      "checksum": "c8a07e558723d396b3fcc5a47229bd86"
+    },
+    "srcjs/config/entry_points.json": {
+      "checksum": "4f7a135131ab406cca7a44afe05758c9"
+    },
+    "srcjs/config/externals.json": {
+      "checksum": "5b3d33f12b1f83c90d051afd7b5c71e6"
+    },
+    "srcjs/config/loaders.json": {
+      "checksum": "58e0494c51d30eb3494f7c9198986bb9"
+    },
+    "srcjs/config/misc.json": {
+      "checksum": "58e0494c51d30eb3494f7c9198986bb9"
+    },
+    "srcjs/config/output_path.json": {
+      "checksum": "cb23be243f5b6f4765e0e5360a49ad54"
+    },
+    "srcjs/index.js": {
+      "checksum": "3c17817ed5b1e197608deacc1bb332e2"
+    },
+    "srcjs/inputs/queryBuilder.js": {
+      "checksum": "95fef27095d0752b9cd78f456d6f8dc7"
+    },
+    "tests/testthat.R": {
+      "checksum": "3b414577685ccb219a99395fe559b11b"
+    },
+    "tests/testthat/test-queryBuilder.R": {
+      "checksum": "011dcd320053fc53cbd5be22c57f989e"
+    },
+    "tests/testthat/test-utils.R": {
+      "checksum": "cc87afd0850fa76a0be7b557f41f6013"
+    },
+    "webpack.common.js": {
+      "checksum": "18ae59ad84f18f641401852b5171db7d"
+    },
+    "webpack.dev.js": {
+      "checksum": "7f8b0e126e584e741fffcb1b6cfe40ad"
+    },
+    "webpack.prod.js": {
+      "checksum": "2698b8ecae8ca5ba1918041ca157bc52"
+    }
+  },
+  "users": null
+}
