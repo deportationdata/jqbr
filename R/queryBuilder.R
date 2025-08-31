@@ -72,6 +72,7 @@ useQueryBuilder <- function(bs_version = c("3", "4", "5")) {
 #' @param add_na_filter bool. Default is FALSE .If `TRUE`, `"is_na"` and `"is_not_na"`
 #'  are added to the global filter list for testing for NA values. Only works when
 #' `return_type` is "rules" or "r_rules".
+#' @param lang
 #'
 #' @return A [htmltools::tagList()] containing the queryBuilder
 #' dependencies and configuration that can be added to a [shiny] UI definition.
@@ -148,6 +149,7 @@ queryBuilderInput <- function(inputId,
                               select_placeholder = "------",
                               operators = NULL,
                               add_na_filter = FALSE,
+                              lang = NULL,
                               return_value = c("r_rules", "rules", "sql", "all")) {
   stopifnot(!missing(inputId))
   stopifnot(!missing(filters))
@@ -174,6 +176,15 @@ queryBuilderInput <- function(inputId,
     operators <- operator_list(add_na_filter = add_na_filter)
   }
 
+  if(is.null(lang)){
+    lang <- list(
+      operators = list(
+        "is_na" = "is NA",
+        "is_not_na" = "is not NA"
+      )
+    )
+  }
+
   options <- list(
     filters = filters,
     plugins = plugins,
@@ -189,12 +200,7 @@ queryBuilderInput <- function(inputId,
     inputs_separator = inputs_separator,
     display_empty_filter = display_empty_filter,
     select_placeholder = select_placeholder,
-    lang = list(
-      operators = list(
-        "is_na" = "is NA",
-        "is_not_na" = "is not NA"
-      )
-    ),
+    lang = lang,
     operators = operators
   )
 
