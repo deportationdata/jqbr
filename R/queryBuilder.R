@@ -179,8 +179,8 @@ queryBuilderInput <- function(inputId,
   if(is.null(lang)){
     lang <- list(
       operators = list(
-        "is_na" = "is NA",
-        "is_not_na" = "is not NA"
+        "is_na" = "is missing",
+        "is_not_na" = "is not missing"
       )
     )
   }
