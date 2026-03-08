@@ -26,7 +26,7 @@ useQueryBuilder <- function(bs_version = c("3", "4", "5")) {
 
   htmltools::htmlDependency(
     name = "queryBuilderBinding",
-    version = "1.0.0",
+    version = "1.0.1",
     src = c(file = system.file("packer", package = "jqbr")),
     script = c("queryBuilder.js", query_builder_bs),
     stylesheet = query_builder_css
