@@ -31,51 +31,68 @@ function _buildOptsHtml(values) {
 
 // Returns a QueryBuilder input factory function that shows a <select> for
 // equal/not_equal operators and a plain text <input> for text operators.
-// The returned function closes over `optHtml` built once from filter.values,
-// so the options string is never eval'd and is only constructed once.
+// `optHtml` is captured once per filter; each rule's operator-change handler
+// is namespaced and rebound on every factory invocation so we never
+// accumulate stale handlers from previous filter selections on the same rule.
 function _makeSelectOrTextInput(values) {
   var optHtml = _buildOptsHtml(values);
 
-  return function (rule, _name) {
+  function paintValueControl($valContainer, op, rule) {
+    $valContainer.empty();
+    if (_SELECT_OPS.includes(op)) {
+      var $sel = $(
+        '<select class="form-control">' + optHtml + "</select>"
+      );
+      $valContainer.append($sel);
+      $sel.on("change", function () {
+        rule.value = $(this).val();
+        rule.$el.trigger("change");
+      });
+    } else if (_TEXT_OPS.includes(op)) {
+      var $inp = $(
+        '<input type="text" class="form-control" placeholder="Type text...">'
+      );
+      $valContainer.append($inp);
+      $inp.on("input", function () {
+        rule.value = $(this).val();
+        rule.$el.trigger("change");
+      });
+    }
+  }
+
+  function factory(rule, _name) {
     var $opContainer = rule.$el.find(".rule-operator-container");
     var $valContainer = rule.$el.find(".rule-value-container");
-    var opSelect = $opContainer.find("select")[0];
 
-    // Initial input: a <select> (equal is the default operator).
-    var $init = $(
-      '<select class="form-control">' + optHtml + "</select>"
+    var initialOpEl = $opContainer.find("select")[0];
+    paintValueControl(
+      $valContainer,
+      initialOpEl ? initialOpEl.value : "equal",
+      rule
     );
-    $valContainer.append($init);
-    $init.on("change", function () {
-      rule.value = $(this).val();
-      rule.$el.trigger("change");
-    });
 
-    // Swap input type whenever the operator dropdown changes.
-    $opContainer.on("change", opSelect, function () {
-      $valContainer.empty();
-      var op = opSelect.value;
-      if (_SELECT_OPS.includes(op)) {
-        var $sel = $(
-          '<select class="form-control">' + optHtml + "</select>"
-        );
-        $valContainer.append($sel);
-        $sel.on("change", function () {
-          rule.value = $(this).val();
-          rule.$el.trigger("change");
-        });
-      } else if (_TEXT_OPS.includes(op)) {
-        var $inp = $(
-          '<input type="text" class="form-control" placeholder="Type text...">'
-        );
-        $valContainer.append($inp);
-        $inp.on("input", function () {
-          rule.value = $(this).val();
-          rule.$el.trigger("change");
-        });
+    // Swap input type whenever the operator dropdown changes. The .off()
+    // removes any previously-bound handler from a prior selectOrText filter
+    // on this same rule. The identity check inside lets us self-unbind when
+    // the user switches to a non-selectOrText filter (plain text/date/etc.),
+    // so we don't repaint that filter's value control with stale options.
+    $opContainer.off("change.selectOrText").on("change.selectOrText", function () {
+      // If the rule's current filter isn't this exact factory, get out of the
+      // way. Without this, a Gender->BirthCountry switch (BirthCountry is a
+      // plain `text` filter) leaves Gender's handler bound, and clicking the
+      // operator repaints BirthCountry's value control with Gender's options
+      // (or a stale text input) — the originally-reported bug.
+      if (!rule.filter || rule.filter.input !== factory) {
+        $opContainer.off("change.selectOrText");
+        return;
       }
+      var sel = $opContainer.find("select")[0];
+      if (!sel) return;
+      paintValueControl($valContainer, sel.value, rule);
     });
-  };
+  }
+
+  return factory;
 }
 
 var queryBuilderBinding = new Shiny.InputBinding();
